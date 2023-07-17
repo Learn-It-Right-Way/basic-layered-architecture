@@ -1,0 +1,9 @@
+.book-table {
+    border-collapse: collapse;
+}
+
+.book-table th,
+.book-table td {
+    border: 1px solid #000;
+    padding: 8px;
+}

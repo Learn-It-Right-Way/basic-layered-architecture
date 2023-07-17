@@ -1,0 +1,40 @@
+{
+    "books": [
+        {
+          "title": "The Great Gatsby",
+          "author": "F. Scott Fitzgerald",
+          "description": "A novel about the Jazz Age in 1920s America.",
+          "publicationYear": 1925,
+          "isbn": "9780743273565"
+        },
+        {
+          "title": "To Kill a Mockingbird",
+          "author": "Harper Lee",
+          "description": "A story of racial injustice in the Deep South.",
+          "publicationYear": 1960,
+          "isbn": "9780061120084"
+        },
+        {
+          "title": "Pride and Prejudice",
+          "author": "Jane Austen",
+          "description": "A classic novel of love and manners.",
+          "publicationYear": 1813,
+          "isbn": "9780141439518"
+        },
+        {
+          "title": "1984",
+          "author": "George Orwell",
+          "description": "A dystopian novel depicting a totalitarian future.",
+          "publicationYear": 1949,
+          "isbn": "9780451524935"
+        },
+        {
+          "title": "The Catcher in the Rye",
+          "author": "J.D. Salinger",
+          "description": "A story of alienation and rebellion.",
+          "publicationYear": 1951,
+          "isbn": "9780316769174"
+        }
+      ]
+      
+}
