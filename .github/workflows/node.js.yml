@@ -28,20 +28,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: ./server/package-lock.json
 
     - name: Install Server Dependencies
       run: |
-          cd ../server
+          cd ./server
           npm install
 
     - name: Build server (if necessary)
       run: |
-          cd ../server
+          cd ./server
           npm run build
 
     - name: Start server
       run: |
-          cd ../server
+          cd ./server
           npm start
           
     - name: Deploy Client Files
