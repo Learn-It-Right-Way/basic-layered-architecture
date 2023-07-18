@@ -1,0 +1,54 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Server Code
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install Server Dependencies
+      run: |
+          cd server
+          npm install
+
+    - name: Build server (if necessary)
+      run: |
+          cd server
+          npm run build
+
+    - name: Start server
+      run: |
+          cd server
+          npm start
+          
+    - name: Deploy Client Files
+      uses: appleboy/scp-action@master
+      with:
+        host: <EC2 instance IP>
+        username: <SSH username>
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: client/
+        target: /var/www/html/
