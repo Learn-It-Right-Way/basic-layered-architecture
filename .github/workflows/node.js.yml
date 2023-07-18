@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [12.x, 14.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -33,7 +33,7 @@ jobs:
     - name: Install Server Dependencies
       run: |
           cd ./server
-          npm install
+          npm ci
 
     - name: Start server
       run: |
