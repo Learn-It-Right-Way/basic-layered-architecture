@@ -10,24 +10,17 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  server:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Setup Server Code
-      uses: actions/setup-node@v3
+    - name: SSH into EC2 and deploy
+      uses: appleboy/ssh-action@master
       with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Install Server Dependencies
-      working-directory: ./server
-      run: npm ci
+        host: 3.145.187.43
+        username: ec2-user
+        key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
