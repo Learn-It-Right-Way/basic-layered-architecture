@@ -24,3 +24,10 @@ jobs:
         host: 3.145.187.43
         username: ec2-user
         key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+        
+        script: |
+          cd /home/ec2-user/basic-layered-architecture
+          git pull origin main
+          cd ./server
+          npm ci
+          npm start
