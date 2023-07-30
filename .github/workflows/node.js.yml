@@ -31,12 +31,3 @@ jobs:
     - name: Install Server Dependencies
       working-directory: ./server
       run: npm ci
-          
-    - name: Deploy Client Files
-      uses: appleboy/scp-action@master
-      with:
-        host: 3.145.187.43
-        username: ec2-user
-        key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
-        source: client/
-        target: /var/www/html/
