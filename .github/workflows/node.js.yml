@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  server:
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -26,7 +26,7 @@ jobs:
         key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
         
         script: |
-          cd /home/ec2-user/basic-layered-architecture
+          cd /usr/share/nginx/html/basic-layered-architecture
           git pull origin main
           cd ./server
           npm ci
