@@ -30,4 +30,4 @@ jobs:
           git pull origin main
           cd ./server
           npm ci
-          npm start
+          pm2 start ./src/index.js
