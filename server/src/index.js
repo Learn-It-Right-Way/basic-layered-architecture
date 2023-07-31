@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 
-const hostname = "layered-poc-pure";
+const hostname = "127.0.0.1";
 const port = 3200;
 
 const server = http.createServer((req, res) => {
